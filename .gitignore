@@ -1,0 +1,8 @@
+cachedir
+log.txt
+
+salt-ssh.rsa
+salt-ssh.rsa
+
+*.rpm
+*.deb
