@@ -1,0 +1,6 @@
+---
+# tasks file for git
+- name: Ensure git installed
+  ansible.builtin.package:
+    name: git
+    state: present

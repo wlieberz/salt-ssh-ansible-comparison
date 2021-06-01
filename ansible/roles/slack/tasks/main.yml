@@ -1,0 +1,41 @@
+---
+# tasks file for slack
+
+- name: Check if rpm installed
+  become: true
+  command: rpm -q slack-desktop
+  ignore_errors: yes
+  changed_when: False
+  register: slack_install_status
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Check if deb installed
+  become: true
+  command: dpkg -l slack-desktop
+  ignore_errors: yes
+  changed_when: False
+  register: slack_install_status
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install deb package
+  block:
+    - name: Ensure deb present
+      ansible.builtin.copy:
+        src: "{{ slack_deb }}"
+        dest: /tmp/
+    - name: Install deb
+      ansible.builtin.apt:
+        deb: "/tmp/{{ slack_deb }}"
+  when: slack_install_status.rc != 0 and ansible_pkg_mgr == 'apt'
+
+- name: Install rpm package
+  block:
+    - name: Ensure rpm present
+      ansible.builtin.copy:
+        src: "{{ slack_rpm }}"
+        dest: /tmp/
+    - name: Install rpm
+      ansible.builtin.yum:
+        name: "/tmp/{{ slack_rpm }}"
+        state: present
+  when: slack_install_status.rc != 0 and ansible_pkg_mgr == 'yum'

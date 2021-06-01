@@ -1,0 +1,6 @@
+---
+# tasks file for openssh-server
+- name: Ensure openssh-server installed
+  ansible.builtin.package:
+    name: openssh-server
+    state: present

@@ -1,0 +1,6 @@
+---
+# tasks file for chromium-browser
+- name: Ensure chromium-browser installed
+  ansible.builtin.package:
+    name: chromium-browser
+    state: present

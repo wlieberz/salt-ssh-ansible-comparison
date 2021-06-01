@@ -1,0 +1,10 @@
+---
+
+- hosts: DevWorkstations
+  become: true
+  roles:
+    - tmux
+    - git
+    - chromium-browser
+    - openssh-server
+    - slack

@@ -1,0 +1,6 @@
+---
+# defaults file for slack
+
+slack_rpm: slack-4.16.0-0.1.fc21.x86_64.rpm
+
+slack_deb: slack-desktop-4.16.0-amd64.deb

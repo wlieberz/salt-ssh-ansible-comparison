@@ -1,0 +1,7 @@
+---
+# tasks file for tmux
+
+- name: Ensure tmux installed
+  ansible.builtin.package:
+    name: tmux
+    state: present
