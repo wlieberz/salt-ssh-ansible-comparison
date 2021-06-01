@@ -1,0 +1,21 @@
+root_dir: .
+
+cachedir: ./cachedir
+
+file_roots:
+  base:
+    - ./salt
+
+pillar_roots:
+  base:
+    - ./pillar
+
+roster_defaults:
+  user: wlieberz
+  sudo: True
+  priv: ~/.ssh/id_rsa
+  tty: True
+
+# Uncomment this if you want less verbose output
+# i.e. success / failure summary only:
+#state_output_diff: True
