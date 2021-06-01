@@ -2,7 +2,9 @@ cachedir
 log.txt
 
 salt-ssh.rsa
-salt-ssh.rsa
+salt-ssh.rsa.pub
 
 *.rpm
 *.deb
+
+*.swp
